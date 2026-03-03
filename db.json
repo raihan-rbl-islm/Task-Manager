@@ -1,0 +1,35 @@
+{
+  "tasks": [],
+  "users": [
+    {
+      "id": "u1",
+      "name": "User 1"
+    },
+    {
+      "id": "u2",
+      "name": "User 2"
+    },
+    {
+      "id": "u3",
+      "name": "User 3"
+    }
+  ],
+  "taskTypes": [
+    {
+      "id": "t1",
+      "label": "Type 1"
+    },
+    {
+      "id": "t2",
+      "label": "Type 2"
+    },
+    {
+      "id": "t3",
+      "label": "Type 3"
+    },
+    {
+      "id": "t4",
+      "label": "Type 4"
+    }
+  ]
+}

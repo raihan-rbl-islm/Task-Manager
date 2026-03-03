@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+    --color-main: var(--bg-main);
+    --color-main-text: var(--text-main);
+    --color-card: var(--card-bg);
+
+    --color-input: var(--input-bg);
+    --color-border-base: var(--border-color);
+    --color-text-muted: var(--text-muted);
+}
+
+:root {
+    --bg-main: #f8fafc;
+    --text-main: #1e293b;
+    --card-bg: #ffffff;
+
+    --input-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --text-muted: #94a3b8;
+
+    color-scheme: light;
+}
+
+.dark {
+    --bg-main: #0f172a;
+    --text-main: #e2e8f0;
+    --card-bg: #1e293b;
+
+    --input-bg: #020617;
+    --border-color: #334155;
+    --text-muted: #94a3b8;
+
+    color-scheme: dark;
+}
