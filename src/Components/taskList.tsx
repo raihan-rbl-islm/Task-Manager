@@ -2,7 +2,7 @@ import { useTasks, useCreateTask, useDeleteTask } from "../taskHooks";
 import { TaskItemCard } from "./taskItem";
 import { TaskForm } from "./taskForm";
 import type { TaskTypeForForm, Task } from "../types";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { getDescendantIds } from "../utils";
 import { useAppStore } from "../store";
 
@@ -18,7 +18,7 @@ export const TaskList = () => {
     const clearSelection = useAppStore((state) => state.clearSelection);
     const deleteMutation = useDeleteTask();
 
-    const handleSelectedDelete = () => {
+    const handleSelectedDelete = useCallback(() => {
         if (!taskList) return;
         if (window.confirm(`Delete ${selectedTaskIds.length} tasks?`)) {
             const ids = new Set<string>();
@@ -36,20 +36,23 @@ export const TaskList = () => {
 
             clearSelection();
         }
-    };
+    }, [selectedTaskIds, deleteMutation, clearSelection, taskList]);
 
-    const handleCreateTask = (formData: TaskTypeForForm) => {
-        const newTask: Task = {
-            ...formData,
-            id: crypto.randomUUID(),
-            createdAt: new Date().toISOString().split("T")[0],
-            parentId: null,
-        };
+    const handleCreateTask = useCallback(
+        (formData: TaskTypeForForm) => {
+            const newTask: Task = {
+                ...formData,
+                id: crypto.randomUUID(),
+                createdAt: new Date().toISOString().split("T")[0],
+                parentId: null,
+            };
 
-        createTaskMutation.mutate(newTask, {
-            onSuccess: () => setIsCreating(false),
-        });
-    };
+            createTaskMutation.mutate(newTask, {
+                onSuccess: () => setIsCreating(false),
+            });
+        },
+        [createTaskMutation],
+    );
 
     if (isLoading) {
         return (

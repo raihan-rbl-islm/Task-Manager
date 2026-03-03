@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useUsers, useTaskTypes } from "../taskHooks";
 import type { TaskTypeForForm } from "../types";
+import { memo } from "react";
 
 interface Props {
     onSave: (data: TaskTypeForForm) => void;
@@ -8,7 +9,7 @@ interface Props {
     defaultValues?: Partial<TaskTypeForForm>;
 }
 
-export const TaskForm = ({ onSave, onCancel, defaultValues }: Props) => {
+export const TaskForm = memo(({ onSave, onCancel, defaultValues }: Props) => {
     const { data: users, isLoading: isUsersLoading } = useUsers();
     const { data: types, isLoading: isTaskTypesLoading } = useTaskTypes();
 
@@ -152,4 +153,4 @@ export const TaskForm = ({ onSave, onCancel, defaultValues }: Props) => {
             </div>
         </form>
     );
-};
+});

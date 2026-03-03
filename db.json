@@ -1,5 +1,36 @@
 {
-  "tasks": [],
+  "tasks": [
+    {
+      "id": "74c2ab15-0ccd-41f3-9a4b-0d1fc73a960f",
+      "title": "1 ",
+      "description": "1",
+      "deadline": "2026-03-04",
+      "assignedId": "u1",
+      "typeId": "t1",
+      "createdAt": "2026-03-03",
+      "parentId": null
+    },
+    {
+      "id": "5f119016-c8d4-4735-8854-9d5b44d99844",
+      "title": "2",
+      "description": "2",
+      "deadline": "2026-03-27",
+      "assignedId": "u1",
+      "typeId": "t1",
+      "createdAt": "2026-03-03",
+      "parentId": "74c2ab15-0ccd-41f3-9a4b-0d1fc73a960f"
+    },
+    {
+      "id": "58610179-8470-4052-9a54-77dd70eadc8d",
+      "title": "3",
+      "description": "3",
+      "deadline": "2026-03-13",
+      "assignedId": "u2",
+      "typeId": "t2",
+      "createdAt": "2026-03-03",
+      "parentId": null
+    }
+  ],
   "users": [
     {
       "id": "u1",
@@ -31,5 +62,6 @@
       "id": "t4",
       "label": "Type 4"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
